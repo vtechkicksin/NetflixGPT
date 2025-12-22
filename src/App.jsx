@@ -1,12 +1,8 @@
 import './App.css'
-
+import Body from './components/Body.jsx'
 function App() {
   return (
-    <div className="card">
-      <h1 class="text-3xl font-bold underline">
-    Hello world!
-  </h1>
-    </div>
+    <Body />
   )
 }
 
