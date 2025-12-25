@@ -1,5 +1,14 @@
 # React + Vite
 
+    - create app using vite
+    - configured tailwind
+    - header
+    - routeing in app
+    - login form 
+    - sign in form 
+    - sign up form 
+    - useRef hook
+    - form Validation
 # configured tailwindCSS
 
 # Features
