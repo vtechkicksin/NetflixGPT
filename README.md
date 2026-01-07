@@ -9,6 +9,9 @@
     - sign up form 
     - useRef hook
     - form Validation
+    - setUp firebase
+    - Deploy our app to production
+    - Create signup user account
 # configured tailwindCSS
 
 # Features
