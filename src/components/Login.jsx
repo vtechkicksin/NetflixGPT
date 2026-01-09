@@ -1,10 +1,11 @@
 import React from 'react'
 import Header from './Header'
 import { useState,useRef } from 'react'
-import { checkValidData } from '../utils/validate';
+import { checkValidData, toastObj } from '../utils/validate';
 import { createUserWithEmailAndPassword,signInWithEmailAndPassword,updateProfile } from "firebase/auth";
 import { auth } from '../utils/firebase';
 import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast, Bounce } from 'react-toastify';
 
 const Login = () => {
   const [signUp, setSignUp]=useState(false);
@@ -16,6 +17,8 @@ const Login = () => {
   const handleSubmit = ()=>{
     const message = checkValidData(email.current.value,password.current.value)
     setErrMessage(message)
+    toast(message, toastObj);
+    
     if(message) return ;
 
     if(signUp) {
@@ -31,6 +34,7 @@ const Login = () => {
           const errorCode = error.code;
           const errorMessage = error.message;
           setErrMessage(errorCode+':-'+errorMessage)
+          toast(errorCode+':-'+errorMessage, toastObj);
         });
         
       })
@@ -38,6 +42,7 @@ const Login = () => {
         const errorCode = error.code;
         const errorMessage = error.message;
         setErrMessage(errorCode+':-'+errorMessage)
+        toast(errorCode+':-'+errorMessage, toastObj);
     });
     } else {
           signInWithEmailAndPassword(auth, email.current.value,password.current.value)
@@ -50,10 +55,9 @@ const Login = () => {
         const errorCode = error.code;
         const errorMessage = error.message;
         setErrMessage(errorCode+':-'+errorMessage)
+        toast(errorCode+':-'+errorMessage)
       });
-
     }
-    
   }
   return (
     <div>
@@ -72,6 +76,19 @@ const Login = () => {
         <p className='text-red-700'>{errMessage}</p>
         <p className='py-4 cursor-pointer' onClick={()=>setSignUp(prev=>!prev)}> {!signUp ? "New to Netflix ? Sign Up" : "Already registered ? Sign In Now"}</p>
       </form>
+        <ToastContainer
+          position="bottom-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick={false}
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+          transition={Bounce}
+          />
     </div>
   )
 }
