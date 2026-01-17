@@ -12,6 +12,9 @@ const Body = () => {
   const approuter = createBrowserRouter([
     { path: "/", element: <Login /> },
     { path: "/browse", element: <Browse /> },
+    {
+    basename: "/NetflixGPT",
+    }
   ])
 
 
