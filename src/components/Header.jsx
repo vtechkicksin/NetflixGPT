@@ -14,7 +14,7 @@ const Header = ({login}) => {
     signOut(auth).then(() => {
       navigate("/")
     }).catch((error) => {
-      // An error happened.
+      console.log(error.messsage);
     });
   }
     useEffect(()=>{

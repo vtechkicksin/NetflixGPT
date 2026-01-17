@@ -4,10 +4,19 @@ export const USER_AVTAR = 'https://avatars.githubusercontent.com/u/50988784?v=4'
 
 export const MOVIE_URL = 'https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1';
 
+// export const API_OPTIONS = {
+//   method: 'GET',
+//   headers: {
+//     accept: 'application/json',
+//     Authorization: `Bearer ${import.meta.env.TMDB_TOKEN}`
+//   }
+// };
+
+// const url = 'https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1';
 export const API_OPTIONS = {
   method: 'GET',
   headers: {
     accept: 'application/json',
-    Authorization: `Bearer ${import.meta.env.TMDB_TOKEN}`
+    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhMmU2OGM1NDFjMWJmODZlNzExNGQ3MTg4NjY0OTY1NSIsIm5iZiI6MTcwNzQxMDYwMS40MDEsInN1YiI6IjY1YzUwNGE5ZGI0ZWQ2MDE4M2QyZmU2NCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ZIKN7fqdB1ZVjNGci4gTxyHfxyiEHc1qJEYgyagP2lc'
   }
 };
