@@ -44,7 +44,7 @@ const Header = ({login}) => {
           <img className='w-8 h-8'
           src={USER_AVTAR}
           alt='sign out'/>
-          <button onClick={signOutUser}>(Sign Out)</button>
+          <button className='cursor-pointer' onClick={signOutUser}>(Sign Out)</button>
         </div>
       }
       

@@ -1,32 +1,14 @@
-import React, { useEffect } from 'react'
-import { API_OPTIONS } from '../utils/constans'
-import { useDispatch, useSelector } from 'react-redux'
-import { addTrailerVideo } from '../utils/movieSlice';
+import { useSelector } from 'react-redux'
+import useMovieTrailer from '../hooks/useMovieTrailer';
+
 
 const VideoBackground = ({movieId}) => {
   const trailerVideo = useSelector((store)=>store.movies?.trailerVideo);
-  const dispatch = useDispatch();
-
-  const getMovieById = async ()=>{
-    const response = await fetch('https://api.themoviedb.org/3/movie/1306368/videos?language=en-US',{
-      ...API_OPTIONS,
-    });
-    const jsonData = await response.json();
-    const filterData = jsonData.results.filter((item)=>item.type==="Trailer");
-    const trailer = filterData.length ? filterData[0] : jsonData.results[0];
-    console.log("trailer",trailer.key)
-    dispatch(addTrailerVideo({ trailer }));
-   
-  }
-  useEffect(()=>{
-    getMovieById();
-  },[]);
+  useMovieTrailer(movieId);
   return (
-    <div>
-      <iframe 
-      width="560" 
-      height="315" 
-      src={`https://www.youtube.com/embed/yeR5bcbRPak?si=${trailerVideo?.key}`} 
+    <div className=''>
+      <iframe className='w-screen aspect-video'
+      src={`https://www.youtube.com/embed/yeR5bcbRPak?si=${trailerVideo?.key}&autoplay=1&mute=1`} 
       title="YouTube video player" 
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
       >
