@@ -13,7 +13,7 @@ const Body = () => {
     { path: "/", element: <Login /> },
     { path: "/browse", element: <Browse /> },
     {
-    basename: "/NetflixGPT",
+      basename: "/NetflixGPT",
     }
   ])
 

@@ -10,14 +10,14 @@ const useNowPlayingMovies = () => {
       ...API_OPTIONS,
     });
 
-    console.log("RESPONSE 👉", response);
+    // console.log("RESPONSE 👉", response);
 
     if (!response.ok) {
       throw new Error(`HTTP Error: ${response.status}`);
     }
 
     const data = await response.json();
-    console.log("MOVIES ✅", data.results);
+    // console.log("MOVIES ✅", data.results);
     dispatch(addNowPlayingMovies(data.results));
   };
 
